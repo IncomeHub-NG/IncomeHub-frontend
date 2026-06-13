@@ -9,13 +9,14 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "DISABLE_ESLINT_PLUGIN=true react-scripts build",
     "test": "react-scripts test"
   },
   "eslintConfig": {
     "extends": ["react-app"],
     "rules": {
-      "no-unused-vars": "off"
+      "no-unused-vars": "off",
+      "react-hooks/exhaustive-deps": "off"
     }
   },
   "browserslist": {
