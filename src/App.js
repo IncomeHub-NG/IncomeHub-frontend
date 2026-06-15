@@ -643,7 +643,7 @@ function Referral({onNav,onUpgradeOpen}) {
               <div style={{fontSize:56,marginBottom:16}}>🔒</div>
               <h3 style={{margin:"0 0 10px",fontSize:20,fontWeight:800}}>Referral Link Locked</h3>
               <p style={{margin:"0 0 20px",color:T.muted,fontSize:14,lineHeight:1.6}}>Upgrade to <strong style={{color:"#CD7F32"}}>Bronze (₦2,000)</strong> to unlock your referral link and start earning commissions.</p>
-              {[{icon:"🔗",text:"Get your unique referral link"},{icon:"💰",text:"Earn 5% commission on Level 1"},{icon:"📊",text:"Track earnings 3 levels deep"},{icon:"⚡",text:"One-time fee — earn forever"}].map((it,i)=>(
+              {[{icon:"🔗",text:"Get your unique referral link"},{icon:"💰",text:"Earn 10% commission on Level 1"},{icon:"📊",text:"Track earnings 3 levels deep"},{icon:"⚡",text:"One-time fee — earn forever"}].map((it,i)=>(
                 <div key={i} style={{...flex("row","center","flex-start",10),padding:"8px 0",borderTop:i>0?"1px solid rgba(255,255,255,.05)":"none",textAlign:"left"}}>
                   <span style={{fontSize:20}}>{it.icon}</span><span style={{fontSize:13,color:T.muted}}>{it.text}</span>
                 </div>
