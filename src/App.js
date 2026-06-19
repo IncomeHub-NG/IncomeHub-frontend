@@ -519,20 +519,21 @@ function Products({onNav,onUpgradeOpen}) {
   const [cat,setCat] = useState("All");
   const cats = ["All","courses","ebooks","tools","mentorship"];
 
-  // Static products (will come from API in full version)
-  const all = [
-    {_id:"1",title:"Digital Marketing Mastery",category:"courses",price:8500,rating:4.8,salesCount:234,icon:"📱",requiredLevel:"bronze",description:"SEO, Ads, Social — full course"},
-    {_id:"2",title:"Forex Trading Blueprint",category:"courses",price:12000,rating:4.9,salesCount:189,icon:"📈",requiredLevel:"bronze",description:"Step-by-step forex roadmap"},
-    {_id:"3",title:"Crypto Wealth Guide",category:"ebooks",price:3500,rating:4.7,salesCount:312,icon:"📗",requiredLevel:"bronze",description:"Beginner crypto guide"},
-    {_id:"4",title:"Business Plan Templates",category:"tools",price:2000,rating:4.6,salesCount:98,icon:"📋",requiredLevel:"bronze",description:"10 ready-to-use templates"},
-    {_id:"5",title:"1-on-1 Mentorship",category:"mentorship",price:25000,rating:5.0,salesCount:45,icon:"🎓",requiredLevel:"gold",description:"Direct coaching session"},
-    {_id:"6",title:"Social Media Growth Kit",category:"tools",price:5000,rating:4.5,salesCount:167,icon:"🚀",requiredLevel:"silver",description:"Templates + strategy pack"},
-    {_id:"7",title:"Affiliate Marketing eBook",category:"ebooks",price:4500,rating:4.8,salesCount:203,icon:"📘",requiredLevel:"silver",description:"Earn commissions anywhere"},
-    {_id:"8",title:"Elite Investment Guide",category:"ebooks",price:18000,rating:4.9,salesCount:67,icon:"💼",requiredLevel:"elite",description:"Wealth-building strategies"},
-  ];
+  const [all, setAll] = useState([]);
+  const [loadingProducts, setLoadingProducts] = useState(true);
 
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const data = await api.get("/api/products", token);
+        if (data.success) setAll(data.products);
+      } catch(e) { console.error(e); }
+      setLoadingProducts(false);
+    };
+    fetchProducts();
+  }, [token]);
   const canAccess = (req) => LEVEL_ORDER.indexOf(user.level) >= LEVEL_ORDER.indexOf(req);
-  const filtered = (cat==="All"?all:all.filter(p=>p.category===cat));
+  const filtered = (cat==="All" ? all : all.filter(p=>p.category===cat));
   const fmt = n => `₦${(n||0).toLocaleString()}`;
 
   return (
