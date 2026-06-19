@@ -545,7 +545,19 @@ function Products({onNav,onUpgradeOpen}) {
         {!acc.canBuy && (
           <div style={{margin:"0 20px 16px",...card({padding:"14px 16px",background:"rgba(241,196,15,.07)",border:"1px solid rgba(241,196,15,.25)"}),...flex("row","center","space-between",12)}}>
             <span style={{fontSize:13,color:"#F5D87A"}}>🔒 Upgrade to Bronze to buy products</span>
-            <button onClick={onUpgradeOpen} style={{...btnG({width:"auto",padding:"8px 16px",fontSize:12})}}>Upgrade</button>
+            <button onClick={unlocked && acc.canBuy ? async () => {
+  const token = localStorage.getItem("ihng_token");
+  const res = await fetch(`https://incomehub-backend-production.up.railway.app/api/products/${p._id}/purchase`, {
+    method: "POST",
+    headers: { "Authorization": `Bearer ${token}`, "Content-Type": "application/json" }
+  });
+  const data = await res.json();
+  if (data.success && data.fileUrl) {
+    window.open(data.fileUrl, "_blank");
+  } else {
+    alert(data.message || "Purchase failed. Please try again.");
+  }
+} : onUpgradeOpen} style={{...btnG({width:"auto",padding:"8px 16px",fontSize:12})}}>Upgrade</button>
           </div>
         )}
 
