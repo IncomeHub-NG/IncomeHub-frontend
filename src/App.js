@@ -468,10 +468,10 @@ function LevelBenefits({onBack,onUpgradeOpen}) {
   const curIdx = LEVEL_ORDER.indexOf(user.level);
   const benefits = {
     free:   ["Browse all products","View dashboard","See referral page (no link)","Limited learning content"],
-    bronze: ["Everything in Free","Referral link activated","5% L1 · 3% L2 · 1% L3 commission","Buy and sell all Bronze products","Withdraw earnings","Transaction history"],
-    silver: ["Everything in Bronze","10% L1 · 5% L2 · 2% L3 commission","Access Silver products","Higher earning potential"],
+    bronze: ["Everything in Free","Referral link activated","10% L1 · 4% L2 · 1% L3 commission","Buy and sell all Bronze products","Withdraw earnings","Transaction history"],
+    silver: ["Everything in Bronze","15% L1 · 6% L2 · 2% L3 commission","Access Silver products","Higher earning potential"],
     gold:   ["Everything in Silver","20% L1 · 8% L2 · 3% L3 commission","Access Gold products","Priority support"],
-    elite:  ["Everything in Gold","30% L1 · 12% L2 · 5% L3 commission","Access ALL products","Full platform access","Maximum earning potential"],
+    elite:  ["Everything in Gold","30% L1 · 10% L2 · 4% L3 commission","Access ALL products","Full platform access","Maximum earning potential"],
   };
   return (
     <div style={{...scr,justifyContent:"flex-start",overflowY:"auto"}}>
