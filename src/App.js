@@ -20,10 +20,10 @@ const useAuth = () => useContext(AuthCtx);
 
 const LEVELS = {
   free:   { name:"Free",   color:"#7F8C8D", icon:"👤", price:0,    commission:{l1:0,  l2:0, l3:0} },
-  bronze: { name:"Bronze", color:"#CD7F32", icon:"🥉", price:2000,  commission:{l1:5,  l2:3, l3:1} },
-  silver: { name:"Silver", color:"#BDC3C7", icon:"🥈", price:6000,  commission:{l1:10, l2:5, l3:2} },
+  bronze: { name:"Bronze", color:"#CD7F32", icon:"🥉", price:2000,  commission:{l1:10,  l2:4, l3:1} },
+  silver: { name:"Silver", color:"#BDC3C7", icon:"🥈", price:6000,  commission:{l1:15, l2:6, l3:2} },
   gold:   { name:"Gold",   color:"#F1C40F", icon:"🥇", price:18000, commission:{l1:20, l2:8, l3:3} },
-  elite:  { name:"Elite",  color:"#85C1E9", icon:"💎", price:54000, commission:{l1:30, l2:12,l3:5} },
+  elite:  { name:"Elite",  color:"#85C1E9", icon:"💎", price:54000, commission:{l1:30, l2:10,l3:4} },
 };
 const LEVEL_ORDER = ["free","bronze","silver","gold","elite"];
 const ACCESS = {
